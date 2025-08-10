@@ -3,8 +3,11 @@ from bs4 import BeautifulSoup
 import pandas as pd
 
 def scrape_weather_forecast():
-    url = "https://www.timeanddate.com/weather/india/kochi/ext"
-    headers = {"User-Agent": "Mozilla/5.0"}
+    url = "https://www.timeanddate.com/weather/india/kochi/ext?lang=en"
+    headers = {
+        "User-Agent": "Mozilla/5.0",
+        "Accept-Language": "en-US,en;q=0.9"
+    }
 
     response = requests.get(url, headers=headers)
     soup = BeautifulSoup(response.content, "html.parser")
